@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .page {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        .active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            font-family: 'Cursive', sans-serif;
+            margin: 0;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .swipe, .start {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .colorful {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff007f, #ffb300, #00c3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #page1 {
+            background-image: url('birthday1.jpg');
+        }
+        #page2 {
+            background-image: url('birthday2.jpg');
+        }
+        #page3 {
+            background-image: url('birthday3.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page 1 -->
+        <div class="page active" id="page1">
+            <h1>Hey GM Birthday Girl.. 💞</h1>
+            <button class="swipe" onclick="showPage(2)">Swipe</button>
+        </div>
+
+        <!-- Page 2 -->
+        <div class="page" id="page2">
+            <h1 class="colorful">A happy birthday journey for u my ❤</h1>
+            <button class="start" onclick="showPage(3)">Let's Start</button>
+        </div>
+
+        <!-- Page 3 -->
+        <div class="page" id="page3">
+            <h1>A VERY HEARTFUL BIRTHDAY MY GURL 💞</h1>
+            <h2>I WILL BE THERE FOR U LIKE AN OXYGEN AT ANY COST</h2>
+            <audio controls autoplay>
+                <source src="birthday1.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageNumber) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById('page' + pageNumber).classList.add('active');
+        }
+    </script>
+</body>
+</html>
